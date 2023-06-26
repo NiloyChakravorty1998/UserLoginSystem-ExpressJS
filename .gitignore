@@ -1,0 +1,5 @@
+# dont push env file
+.env
+
+# dont push node_modules
+node_modules
