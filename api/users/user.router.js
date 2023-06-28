@@ -1,9 +1,11 @@
-const { createUser, getAllUser, updateUser, getUser, deleteUser } = require('./user.controller')
+const { createUser, getAllUser, updateUser, getUser, deleteUser, login } = require('./user.controller')
 const router = require('express').Router();
+const { checkToken } = require('../../auth/tokenValidation')
 
-router.post('/',createUser);
-router.get('/', getAllUser);
-router.put('/:id', updateUser);
-router.get('/:id', getUser);
-router.delete('/:id', deleteUser);
+router.post('/', checkToken, createUser);
+router.get('/', checkToken, getAllUser);
+router.put('/:id',checkToken, updateUser);
+router.get('/:id',checkToken, getUser);
+router.delete('/:id',checkToken, deleteUser);
+router.post('/login', login)
 module.exports= router;

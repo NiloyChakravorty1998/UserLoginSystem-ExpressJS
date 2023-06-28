@@ -82,5 +82,19 @@ module.exports = {
     } catch (error) {
       return callback(error);
     }
+  },
+
+  getUserByEmail : async(email,callback) => {
+    try {
+      const userEmail = email;
+      const client = await pool.connect(); 
+      const query = `SELECT * FROM REGISTRATION where email = '${userEmail}';`;
+      const result = await client.query(query);
+      client.release();
+      
+      return callback(null, result);
+    } catch (error) {
+      return callback(error);
+    }
   }
 };
