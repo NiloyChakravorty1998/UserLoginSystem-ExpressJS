@@ -1,4 +1,4 @@
-const { create } = require('./user.service');
+const { create, getAll } = require('./user.service');
 const {genSaltSync, hashSync} = require('bcrypt')
 
 module.exports ={
@@ -23,6 +23,24 @@ module.exports ={
                 }
             )
 
+        })
+    },
+    getAllUser : (req,res) => {
+        getAll((err,results) => {
+            if(err)
+            {
+            console.log(err);
+            return res.status(500).json({
+                success: 0,
+                message: "database connection error"
+            })
+            }
+            return res.status(200).json(
+                {
+                    success: 1,
+                    data: results
+                }
+            )
         })
     }
 }
