@@ -1,6 +1,6 @@
 ﻿# UserLoginSystem-ExpressJS
 
-This repository contains a simple demo of building an API using Node.js and Express.js. The API connects to a Postgres database and allows you to perform CRUD operations on a "users" table.
+This repository contains an API using Node.js and Express.js. The API connects to a Postgres database and allows you to perform CRUD operations on a "users" table.
 
 Installation
 To set up the project locally, follow these steps:
